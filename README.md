@@ -1,6 +1,9 @@
 # RomDoc
 RomDoc is a docker that will allow you to host you're roms online for you're other pcs to download them.
 
+# READ
+This project is no longer maintand I will be remakeing this whole thing from scratch beacuse I did not like the way it ended up.
+
 ## Server
 The server is made the pc that will host the rom files note tho that roms are not shared to everyone in the world only pcs on you're network will be able to download them.
 

@@ -12,7 +12,7 @@ The clinet is the software that will connect to the server and then allow you do
 2) MacOS
 3) Windows (Not tested at all)
 
-## Installing
+## Installing a server
 To install this tool, follow these steps:
 1) open a terminal and run these commands
 ```

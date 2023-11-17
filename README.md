@@ -24,5 +24,17 @@ sudo apt upgrade -y
 ```
 
 ```
-This is the install command but this has not been setup yet.
+git clone https://github.com/HttpAnimation/RomDoc.git && cd RomDoc
+```
+
+Now build the docker with
+
+```
+python3 Build.py
+```
+
+Once done the run command will be
+
+```
+python3 Run.py
 ```

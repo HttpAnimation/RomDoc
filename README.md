@@ -38,3 +38,18 @@ Once done the run command will be
 ```
 python3 Run.py
 ```
+
+## Installing a client
+To install a clien, follow these steps:
+
+### Python3
+1) open a terminal and run these commands
+
+Install the client
+```
+mkdir Python3-Client && cd Python3-Client && wget https://raw.githubusercontent.com/HttpAnimation/RomDoc/main/Clients/Python3/URL.ini && wget https://raw.githubusercontent.com/HttpAnimation/RomDoc/main/Clients/Python3/Client.py 
+```
+Run the client make sure to be in the same dir as the python3 script also make sure to have the [url setup](/Clients/Python3/README.md)
+```
+python3 Client.py
+```

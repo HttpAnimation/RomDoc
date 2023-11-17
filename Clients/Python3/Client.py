@@ -1,32 +1,46 @@
 import requests
 import configparser
 
-# Function to read the base URL from the configuration file
 def read_base_url():
     config = configparser.ConfigParser()
     config.read('URL.ini')  # Assuming URL.ini is in the same directory as your script
     return config['DEFAULT']['base_url']
 
-# Use the function to get the base URL
 base_url = read_base_url()
 
 def list_folders():
-    response = requests.get(f'{base_url}/list')
-    folders = response.text.split(',')
-    return folders
+    try:
+        response = requests.get(f'{base_url}/list')
+        response.raise_for_status()
+        folders = response.text.split(',')
+        return folders
+    except requests.exceptions.RequestException as e:
+        print(f"Error listing folders: {e}")
+        return []
 
 def list_files(folder):
-    response = requests.get(f'{base_url}/list/{folder}')
-    files = response.text.split(',')
-    return files
+    try:
+        response = requests.get(f'{base_url}/list/{folder}')
+        response.raise_for_status()
+        files = response.text.split(',')
+        return files
+    except requests.exceptions.RequestException as e:
+        print(f"Error listing files in {folder}: {e}")
+        return []
 
 def download_file(folder, filename):
-    url = f'{base_url}/download/{folder}/{filename}'
-    response = requests.get(url, stream=True)
-    
-    with open(filename, 'wb') as f:
-        for chunk in response.iter_content(chunk_size=128):
-            f.write(chunk)
+    try:
+        url = f'{base_url}/download/{folder}/{filename}'
+        response = requests.get(url, stream=True)
+        response.raise_for_status()
+
+        with open(filename, 'wb') as f:
+            for chunk in response.iter_content(chunk_size=128):
+                f.write(chunk)
+
+        print('Download complete.')
+    except requests.exceptions.RequestException as e:
+        print(f"Error downloading {filename} from {folder}: {e}")
 
 if __name__ == '__main__':
     folders = list_folders()
@@ -38,4 +52,3 @@ if __name__ == '__main__':
 
     file_name = input('Enter filename to download: ')
     download_file(folder_name, file_name)
-    print('Download complete.')

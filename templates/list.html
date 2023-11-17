@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROM Server - <?php echo $folder; ?></title>
+</head>
+<body>
+    <h1>ROMs in <?php echo $folder; ?></h1>
+    <ul>
+        <?php foreach ($files as $file): ?>
+            <li><a href="<?php echo url_for('download_file', ['folder' => $folder, 'filename' => $file]); ?>"><?php echo $file; ?></a></li>
+        <?php endforeach; ?>
+    </ul>
+</body>
+</html>

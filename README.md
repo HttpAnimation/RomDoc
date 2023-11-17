@@ -40,7 +40,7 @@ python3 Run.py
 ```
 
 ## Installing a client
-To install a clien, follow these steps:
+To install a client, follow these steps:
 
 ### Python3
 1) open a terminal and run these commands
